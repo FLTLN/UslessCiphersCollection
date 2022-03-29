@@ -70,14 +70,14 @@ class CipherOTP
 // LFSR (Linear-Feedback Shift Register) pseudo random bits generator
 class GeneratorLFSR
 {
-   GeneratorLFSR(char polynomial, int polynomial_degree, char seed);
-   char generate(int number_of_bits);
+   GeneratorLFSR(char32_t polynomial, int polynomial_degree, char32_t seed);
+   char32_t generate(int number_of_bits);
 }
 
 // OTP with keystream generated with LFSR
 class CipherOTPWithLFSR
 {
-   CipherOTPWithLFSR(unsigned int polynomial, int polynomial_degree, unsigned int seed);
+   CipherOTPWithLFSR(char32_t polynomial, int polynomial_degree, char32_t seed);
    void encrypt(char* out, char* in, int in_length);
    void decrypt(char* out, char* in, int in_length);
 }
@@ -104,6 +104,23 @@ struct InsufficientKeystream : public std::exception
    const char * what () const throw ()
    {
       return "Keystream length is less than input string length";
+   }
+}
+
+// LFSR and OTP with LFSR
+struct IllegalPolynomialDegree : public std::exception
+{
+   const char * what () const throw ()
+   {
+      return "Given polynomial degree is illegal";
+   }
+}
+
+struct IllegalNumberOfBits : public std::exception
+{
+   const char * what () const throw ()
+   {
+      return "Requested number of bits is illegal";
    }
 }
 

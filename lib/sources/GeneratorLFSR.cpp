@@ -1,11 +1,12 @@
 #include "GeneratorLFSR.h"
+#include "Exceptions.h"
 #include <uchar.h>
 
 GeneratorLFSR::GeneratorLFSR(char32_t polynomial, int polynomial_degree, char32_t seed) : m_polynomial(polynomial), m_polynomial_size(polynomial_degree - 1), m_state(seed)
 {
-   if (m_polynomial_size > sizeof(char32_t))
+   if (m_polynomial_size > sizeof(char32_t) * 8)
    {
-      // Throw exception
+      throw IllegalPolynomialDegree();
    }
 
    char32_t mask = ~(char32_t)(0);
@@ -18,9 +19,9 @@ GeneratorLFSR::GeneratorLFSR(char32_t polynomial, int polynomial_degree, char32_
 
 char32_t GeneratorLFSR::generate(int number_of_bits)
 {
-   if (number_of_bits > sizeof(char32_t))
+   if (number_of_bits > sizeof(char32_t) * 8)
    {
-      // Throw exception
+      throw IllegalNumberOfBits();
    }
 
    char32_t data = 0;
