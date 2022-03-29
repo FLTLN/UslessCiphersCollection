@@ -63,8 +63,7 @@ class CipherVigenere
 class CipherOTP
 {
    CipherOTP(char* keystream, int keystream_len);
-   void encrypt(char* out, char* in, int in_length);
-   void decrypt(char* out, char* in, int in_length);
+   void process(char* out, char* in, int in_length);
 }
 
 // LFSR (Linear-Feedback Shift Register) pseudo random bits generator
@@ -78,8 +77,7 @@ class GeneratorLFSR
 class CipherOTPWithLFSR
 {
    CipherOTPWithLFSR(char32_t polynomial, int polynomial_degree, char32_t seed);
-   void encrypt(char* out, char* in, int in_length);
-   void decrypt(char* out, char* in, int in_length);
+   void process(char* out, char* in, int in_length);
 }
 
 ```
