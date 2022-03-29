@@ -1,5 +1,6 @@
 #include "CipherShift.h"
 #include <iostream>
+#include "Exceptions.h"
 
 CipherShift::CipherShift(char *alphabet, int alphabet_len, int shift)
 {
@@ -44,7 +45,7 @@ void CipherShift::encrypt(char *out, char *in, int in_length)
                 out[i] = m_alphabet[j - m_shift];
             }
             else{
-                //exception
+                throw SymbolNotInAlphabet();
             }
         };
     }
@@ -70,7 +71,7 @@ void CipherShift::encrypt(char *out, char *in, int in_length)
             out[i] = m_alphabet[j + m_shift];
         }
         else{
-                //exception
+                throw SymbolNotInAlphabet();
         }
     };
 };
@@ -102,7 +103,7 @@ void CipherShift::decrypt(char *out, char *in, int in_length)
                 out[i] = m_alphabet[j + m_shift];
             }
             else{
-                //exception
+                throw SymbolNotInAlphabet();
             }
         };        
     };
@@ -125,21 +126,7 @@ void CipherShift::decrypt(char *out, char *in, int in_length)
             out[i] = m_alphabet[j - m_shift];
         }
         else{
-                //exception
+                throw SymbolNotInAlphabet();
         }
     };
 };
-
-// int main()
-// {
-//     char alphabet1[] = "world";
-//     CipherShift message(alphabet1, 5, 2);
-//     char out1[3];
-//     char in1[] = "ldw"; //ldw orl
-//     char *in2 = in1;
-//     message.decrypt(out1, in1, 3);
-
-//     for (int i = 0; i < 3; i++) {
-//         cout << out1[i];
-//     };
-// }

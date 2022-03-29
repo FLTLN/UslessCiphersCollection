@@ -1,5 +1,6 @@
 #include "CipherSimpleSubstitution.h"
 #include <iostream>
+#include "Exceptions.h"
 
 CipherSimpleSubstitution::CipherSimpleSubstitution(char* alphabet, int alphabet_len, char* substitution_alphabet){
 
@@ -39,7 +40,7 @@ void CipherSimpleSubstitution::encrypt(char* out, char* in, int in_length){
             out[i] = m_substitution_alphabet[j];
         }
         else{
-            //exception
+            throw SymbolNotInAlphabet();
         }
     }
 
@@ -60,25 +61,8 @@ void CipherSimpleSubstitution::decrypt(char* out, char* in, int in_length){
             out[i] = m_alphabet[j];
         }
         else{
-            //exception
+            throw SymbolNotInAlphabet();
         }
     }
 
 }
-
-
-// int main()
-// {
-//     char alphabet1[] = "world";
-//     char alphabet2[] = "magic";
-    
-//     CipherSimpleSubstitution message(alphabet1, 5, alphabet2);
-//     char out1[2];
-//     char in1[] = "ma"; //ldw orl
-    
-//     message.decrypt(out1, in1, 2);
-
-//     for (int i = 0; i < 2; i++) {
-//         std::cout << out1[i];
-//     };
-// }

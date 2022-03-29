@@ -1,5 +1,6 @@
 #include "CipherVigenere.h"
 #include <iostream>
+#include "Exceptions.h"
 
 CipherVigenere::CipherVigenere(char *alphabet, int alphabet_len, char *key, int key_len)
 {
@@ -52,7 +53,7 @@ void CipherVigenere::encrypt(char *out, char *in, int in_length)
 
         else
         {
-            // exception
+            throw SymbolNotInAlphabet();
         }
     }
     iterator_index_key = 0;
@@ -76,7 +77,7 @@ void CipherVigenere::encrypt(char *out, char *in, int in_length)
 
         else
         {
-            // exception
+            throw SymbolNotInAlphabet();
         }
 
 
@@ -122,7 +123,7 @@ void CipherVigenere::decrypt(char *out, char *in, int in_length)
 
         else
         {
-            // exception
+            throw SymbolNotInAlphabet();
         }
     }
     iterator_index_key = 0;
@@ -146,7 +147,7 @@ void CipherVigenere::decrypt(char *out, char *in, int in_length)
 
         else
         {
-            // exception
+            throw SymbolNotInAlphabet();
         }
 
 

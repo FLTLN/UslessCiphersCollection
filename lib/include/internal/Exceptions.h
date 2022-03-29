@@ -20,4 +20,22 @@ struct IllegalNumberOfBits : public std::exception
    }
 };
 
+// Encryption and decryption with CipherShift, CipherSimpleSubstitution and CipherVigenere
+struct SymbolNotInAlphabet : public std::exception
+{
+   const char * what () const throw ()
+   {
+      return "Symbol in input string does not found in alphabet";
+   }
+};
+
+// Encryption and decryption with One Time Pad
+struct InsufficientKeystream : public std::exception
+{
+   const char * what () const throw ()
+   {
+      return "Keystream length is less than input string length";
+   }
+};
+
 #endif //_H_EXCEPT_
