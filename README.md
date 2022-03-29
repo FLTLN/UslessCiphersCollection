@@ -34,6 +34,8 @@ The following functionality is implemented in this repository:
 
 ## API
 
+See [documentation](./DOCUMENTATION.md) for further details.
+
 ```c++
 // Shift (Caesar) cipher
 class CipherShift
