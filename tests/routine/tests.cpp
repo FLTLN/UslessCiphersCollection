@@ -31,6 +31,7 @@ int main()
 
    // key expansion
    EXECUTE_TEST(t_demo_test)
+   EXECUTE_TEST(t_lfsr)
 
    std::cout << "Testing done\n";
    std::cout << "───────────────────────────────────────────────\n";
