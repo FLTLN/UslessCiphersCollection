@@ -34,6 +34,7 @@ int main()
    EXECUTE_TEST(t_shift)
    EXECUTE_TEST(t_simple_substitution)
    EXECUTE_TEST(t_vigenere)
+   EXECUTE_TEST(t_otp_with_lfsr)
 
    std::cout << "Testing done\n";
    std::cout << "───────────────────────────────────────────────\n";
