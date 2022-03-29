@@ -1,7 +1,7 @@
 file(GLOB LIB_SOURCES "sources/*.cpp")
-file(GLOB LIB_HEADERS "include/*.h")
-file(GLOB INTERNAL_LIB_HEADERS "include/internal/*.h")
+
+include_directories("${CMAKE_SOURCE_DIR}/lib/include" "${CMAKE_SOURCE_DIR}/lib/include/internal")
 
 set(LIB_HEADERS "${LIB_HEADERS}" PARENT_SCOPE)
 
-add_library(ciph STATIC ${LIB_SOURCES} ${LIB_HEADERS} ${INTERNAL_LIB_HEADERS})
+add_library(ciph STATIC ${LIB_SOURCES})

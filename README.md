@@ -60,7 +60,6 @@ class CipherVigenere
 }
 
 // OTP (One Time Pad) cipher
-
 class CipherOTP
 {
    CipherOTP(char* keystream, int keystream_len);
@@ -68,15 +67,17 @@ class CipherOTP
    void decrypt(char* out, char* in, int in_length);
 }
 
+// LFSR (Linear-Feedback Shift Register) pseudo random bits generator
 class GeneratorLFSR
 {
-   GeneratorLFSR(unsigned int polynomial, int polynomial_size, unsigned int seed);
-   void generate(char* buffer, int number_of_bits);
+   GeneratorLFSR(char polynomial, int polynomial_degree, char seed);
+   char generate(int number_of_bits);
 }
 
+// OTP with keystream generated with LFSR
 class CipherOTPWithLFSR
 {
-   CipherOTPWithLFSR(unsigned int polynomial, int polynomial_size, unsigned int seed);
+   CipherOTPWithLFSR(unsigned int polynomial, int polynomial_degree, unsigned int seed);
    void encrypt(char* out, char* in, int in_length);
    void decrypt(char* out, char* in, int in_length);
 }
