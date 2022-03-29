@@ -31,5 +31,4 @@ bool t_vigenere(){
     }
 
     return true;
-
 }
