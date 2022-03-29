@@ -1,5 +1,6 @@
-#include "../include/CipherOTP.h"
+#include "CipherOTP.h"
 #include <iostream>
+#include "Exceptions.h"
 
 
 CipherOTP::CipherOTP(char* keystream, int keystream_len){
@@ -22,7 +23,7 @@ CipherOTP::~CipherOTP(){
 
 void CipherOTP::process(char* out, char* in, int in_length){
     if(m_keystream_len<in_length){
-        //exception
+        throw InsufficientKeystream();
     }
     for (int i = 0; i < in_length; i++){
         out[i] = in[i]^m_keystream[i];

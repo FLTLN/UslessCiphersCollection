@@ -1,5 +1,6 @@
-#include "../include/CipherVigenere.h"
+#include "CipherVigenere.h"
 #include <iostream>
+#include "Exceptions.h"
 
 CipherVigenere::CipherVigenere(char *alphabet, int alphabet_len, char *key, int key_len)
 {
@@ -52,7 +53,7 @@ void CipherVigenere::encrypt(char *out, char *in, int in_length)
 
         else
         {
-            // exception
+            throw SymbolNotInAlphabet();
         }
     }
     iterator_index_key = 0;
@@ -76,7 +77,7 @@ void CipherVigenere::encrypt(char *out, char *in, int in_length)
 
         else
         {
-            // exception
+            throw SymbolNotInAlphabet();
         }
 
 
@@ -122,7 +123,7 @@ void CipherVigenere::decrypt(char *out, char *in, int in_length)
 
         else
         {
-            // exception
+            throw SymbolNotInAlphabet();
         }
     }
     iterator_index_key = 0;
@@ -146,7 +147,7 @@ void CipherVigenere::decrypt(char *out, char *in, int in_length)
 
         else
         {
-            // exception
+            throw SymbolNotInAlphabet();
         }
 
 
@@ -165,25 +166,3 @@ void CipherVigenere::decrypt(char *out, char *in, int in_length)
 
     delete[] index_key_elem;
 }
-
-
-// int main()
-// {
-
-    
-//     char alphabet[] =  "abcdefghijklmnopqrstuvwxyz";
-//     int alphabet_len = 26;
-    
-//     char key[] = "dog";
-//     int key_len = 3;
-    
-//     CipherVigenere message(alphabet, alphabet_len, key, key_len);
-//     char out1[7];
-//     char in1[] = "sfujfgp"; //ldw program
-    
-//     message.decrypt(out1, in1, 7);
-
-//     for (int i = 0; i < 7; i++) {
-//         std::cout << out1[i];
-//     };
-// }

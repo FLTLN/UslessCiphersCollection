@@ -29,9 +29,11 @@ int main()
    int failed = 0;
    int all = 0;
 
-   // key expansion
    EXECUTE_TEST(t_demo_test)
    EXECUTE_TEST(t_lfsr)
+   EXECUTE_TEST(t_shift)
+   EXECUTE_TEST(t_simple_substitution)
+   EXECUTE_TEST(t_vigenere)
 
    std::cout << "Testing done\n";
    std::cout << "───────────────────────────────────────────────\n";
