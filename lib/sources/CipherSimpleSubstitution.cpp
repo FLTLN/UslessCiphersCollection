@@ -1,4 +1,4 @@
-#include "../include/CipherSimpleSubstitution.h"
+#include "CipherSimpleSubstitution.h"
 #include <iostream>
 
 CipherSimpleSubstitution::CipherSimpleSubstitution(char* alphabet, int alphabet_len, char* substitution_alphabet){

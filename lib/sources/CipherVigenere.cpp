@@ -1,4 +1,4 @@
-#include "../include/CipherVigenere.h"
+#include "CipherVigenere.h"
 #include <iostream>
 
 CipherVigenere::CipherVigenere(char *alphabet, int alphabet_len, char *key, int key_len)

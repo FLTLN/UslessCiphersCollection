@@ -1,4 +1,4 @@
-#include "../include/CipherOTP.h"
+#include "CipherOTP.h"
 #include <iostream>
 
 

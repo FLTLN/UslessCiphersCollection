@@ -1,4 +1,4 @@
-#include "../include/CipherShift.h"
+#include "CipherShift.h"
 #include <iostream>
 
 CipherShift::CipherShift(char *alphabet, int alphabet_len, int shift)
